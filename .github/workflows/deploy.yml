@@ -1,0 +1,115 @@
+name: Deploy static content to Pages
+
+on:
+  push:
+    branches: [master, main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+  actions: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Cancel competing pages-build-deployment runs
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          RUNS=$(gh run list \
+            --workflow pages-build-deployment \
+            --status in_progress \
+            --json databaseId \
+            --jq '.[].databaseId')
+          for RUN_ID in $RUNS; do
+            echo "Cancelling pages-build-deployment run $RUN_ID"
+            gh run cancel "$RUN_ID" || true
+          done
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: lts/*
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type check
+        run: npm run type-check
+
+      - name: Build
+        run: npm run build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v6
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: ./dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url || steps.deploy2.outputs.page_url || steps.deploy3.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: lts/*
+
+      - name: Cancel lingering pages-build-deployment runs
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          RUNS=$(gh run list \
+            --workflow pages-build-deployment \
+            --status in_progress \
+            --json databaseId \
+            --jq '.[].databaseId')
+          for RUN_ID in $RUNS; do
+            echo "Cancelling pages-build-deployment run $RUN_ID"
+            gh run cancel "$RUN_ID" || true
+          done
+
+      - name: Deploy to GitHub Pages
+        id: deploy
+        continue-on-error: true
+        uses: actions/deploy-pages@v5
+
+      - name: Wait for deploy retry 1
+        if: steps.deploy.outcome == 'failure'
+        run: sleep 30
+
+      - name: Deploy retry 1
+        id: deploy2
+        if: steps.deploy.outcome == 'failure'
+        continue-on-error: true
+        uses: actions/deploy-pages@v5
+
+      - name: Wait for deploy retry 2
+        if: steps.deploy2.outcome == 'failure'
+        run: sleep 60
+
+      - name: Deploy retry 2
+        id: deploy3
+        if: steps.deploy2.outcome == 'failure'
+        uses: actions/deploy-pages@v5
