@@ -107,8 +107,10 @@ const features = [
               loading="lazy"
             />
             <div class="feature-card__body">
-              <span class="feature-card__icon" v-html="feature.icon"></span>
-              <h3 class="feature-card__title">{{ feature.title }}</h3>
+              <div class="feature-card__header">
+                <span class="feature-card__icon" v-html="feature.icon"></span>
+                <h3 class="feature-card__title">{{ feature.title }}</h3>
+              </div>
               <p class="feature-card__text">{{ feature.description }}</p>
             </div>
           </RouterLink>
@@ -241,10 +243,17 @@ const features = [
   padding: 1.5rem;
 }
 
+.feature-card__header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .feature-card__icon {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   color: var(--color-accent);
   line-height: 1;
+  flex-shrink: 0;
 }
 
 .feature-card__title {
