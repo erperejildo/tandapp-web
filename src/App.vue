@@ -19,8 +19,10 @@ watch(
   locale,
   (newLocale) => {
     if (typeof document !== 'undefined') {
-      document.documentElement.lang = newLocale
-      persistLocale(newLocale)
+      document.documentElement.lang = newLocale as string
+      if (newLocale === 'en' || newLocale === 'es') {
+        persistLocale(newLocale)
+      }
     }
   },
   { immediate: true },
