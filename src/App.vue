@@ -7,7 +7,6 @@ import AppFooter from '@/components/AppFooter.vue'
 import AppHeader from '@/components/AppHeader.vue'
 import LanguageToggle from '@/components/LanguageToggle.vue'
 import { siteConfig } from '@/config/site'
-import type { SiteLocale } from '@/types'
 import { persistLocale } from '@/i18n/messages'
 
 const { t, locale } = useI18n()
@@ -21,7 +20,7 @@ watch(
   (newLocale) => {
     if (typeof document !== 'undefined') {
       document.documentElement.lang = newLocale
-      persistLocale(newLocale as SiteLocale)
+      persistLocale(newLocale)
     }
   },
   { immediate: true },

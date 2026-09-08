@@ -2,7 +2,7 @@ import { createI18n } from 'vue-i18n'
 import { ViteSSG } from 'vite-ssg'
 
 import App from './App.vue'
-import { defaultLocale, messages, resolvePreferredLocale } from './i18n/messages'
+import { defaultLocale, messages } from './i18n/messages'
 import { routes } from './router/routes'
 import './styles/main.scss'
 
@@ -24,7 +24,7 @@ export const createApp = ViteSSG(
   ({ app, router, isClient }) => {
     const i18n = createI18n({
       legacy: false,
-      locale: resolvePreferredLocale(),
+      locale: defaultLocale,
       fallbackLocale: defaultLocale,
       messages,
     })

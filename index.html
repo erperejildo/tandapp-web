@@ -1,28 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script>
-      (function () {
-        var path = window.location.pathname;
-        if (
-          path === '/en' ||
-          path.startsWith('/en/') ||
-          path === '/es' ||
-          path.startsWith('/es/')
-        ) {
-          return;
-        }
-        var stored = localStorage.getItem('site-locale');
-        var locale;
-        if (stored === 'en' || stored === 'es') {
-          locale = stored;
-        } else {
-          locale = navigator.language.toLowerCase().startsWith('es') ? 'es' : 'en';
-        }
-        var target = '/' + locale + (path === '/' ? '' : path);
-        window.location.replace(target);
-      })();
-    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tandapp: Tanda Group Organizer</title>

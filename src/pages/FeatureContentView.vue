@@ -66,15 +66,26 @@ function placeholderUrl(w: number, h: number, description: string): string {
       </div>
     </header>
 
-    <section v-for="(section, key) in content.sections" :key="key" class="section">
+    <section
+      v-for="(section, key) in content.sections"
+      :key="key"
+      class="section"
+    >
       <div class="container">
         <div class="feature-page__section-copy">
           <h2 class="feature-page__section-title">{{ section.title }}</h2>
           <p v-if="section.description" class="section-copy">{{ section.description }}</p>
         </div>
 
-        <div v-if="section.items && section.items.length > 0" class="feature-page__cards">
-          <div v-for="(item, idx) in section.items" :key="idx" class="feature-page__card">
+        <div
+          v-if="section.items && section.items.length > 0"
+          class="feature-page__cards"
+        >
+          <div
+            v-for="(item, idx) in section.items"
+            :key="idx"
+            class="feature-page__card"
+          >
             <span class="feature-page__card-number">{{ idx + 1 }}</span>
             <h3 class="feature-page__card-title">{{ item.title }}</h3>
             <p class="feature-page__card-text">{{ item.description }}</p>
@@ -94,23 +105,12 @@ function placeholderUrl(w: number, h: number, description: string): string {
     </section>
 
     <section class="section section--dark">
-      <div
-        class="container"
-        style="text-align: center; display: grid; gap: 1rem; justify-items: center"
-      >
-        <h2 style="font-size: clamp(1.4rem, 3vw, 2rem)">
-          {{
-            locale === 'es'
-              ? 'Empieza a organizar tu tanda hoy'
-              : 'Start organizing your tanda today'
-          }}
+      <div class="container" style="text-align: center; display: grid; gap: 1rem; justify-items: center;">
+        <h2 style="font-size: clamp(1.4rem, 3vw, 2rem);">
+          {{ locale === 'es' ? 'Empieza a organizar tu tanda hoy' : 'Start organizing your tanda today' }}
         </h2>
-        <p style="margin: 0; max-width: 50ch; color: rgba(255, 255, 255, 0.8)">
-          {{
-            locale === 'es'
-              ? 'Gratis. Crea tu primer grupo en menos de un minuto.'
-              : 'Free to use. Create your first group in under a minute.'
-          }}
+        <p style="margin: 0; max-width: 50ch; color: rgba(255, 255, 255, 0.8);">
+          {{ locale === 'es' ? 'Gratis. Sin anuncios molestos. Crea tu primer grupo en menos de un minuto.' : 'Free to use. No annoying ads. Create your first group in under a minute.' }}
         </p>
       </div>
     </section>
