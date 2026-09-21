@@ -6,7 +6,13 @@ defineProps<{
 </script>
 
 <template>
-  <a :href="href" target="_blank" rel="noopener" class="store-button" :class="`store-button--${store}`">
+  <a
+    :href="href"
+    target="_blank"
+    rel="noopener"
+    class="store-button"
+    :class="`store-button--${store}`"
+  >
     <img
       v-if="store === 'google'"
       src="/images/google-play.svg"
@@ -14,13 +20,7 @@ defineProps<{
       class="store-button__icon"
       aria-hidden="true"
     />
-    <img
-      v-else
-      src="/images/apple.svg"
-      alt=""
-      class="store-button__icon"
-      aria-hidden="true"
-    />
+    <img v-else src="/images/apple.svg" alt="" class="store-button__icon" aria-hidden="true" />
     <span class="store-button__text">
       <slot />
     </span>

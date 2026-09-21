@@ -21,7 +21,7 @@ export const createApp = ViteSSG(
       return savedPosition ?? { top: 0 }
     },
   },
-  ({ app, router, isClient }) => {
+  ({ app, router }) => {
     const i18n = createI18n({
       legacy: false,
       locale: defaultLocale,

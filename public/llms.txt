@@ -1,0 +1,37 @@
+# Tandapp
+
+> Tandapp is a free, private group savings (tanda, cundina, susú, ROSCA) coordination app available on iOS and Android.
+
+Tandapp simplifies rotating group savings by replacing messy spreadsheets, confusing WhatsApp threads, and unrecorded payments with a shared, transparent record of turns, contributions, and payment receipts.
+
+## Critical Notice
+Tandapp does **not** hold, collect, or process money. Members make payments directly to one another using their preferred payment methods (cash, bank transfer, etc.). Tandapp serves solely as a coordination, scheduling, and verifiable record-keeping platform.
+
+## Key Features
+- **Online Tanda Creation**: Set the contribution amount, frequency (weekly, bi-weekly, monthly), number of members, and invite participants via an invitation link or code.
+- **Round & Turn Tracking**: Clear schedule displaying who receives the pot for each round, due dates, and past rounds.
+- **Color-Coded Payment Status**: Instant visibility into who has paid (green), who is pending (gray), and who is late (red).
+- **Payment Proof & Receipts**: Members can upload transfer screenshots or receipts directly to payments and tanda group chat for dispute-free verification.
+- **Group Chat**: In-app private group messaging for coordination and reminders.
+- **Private Savings Tracker**: Individual private goal tracker alongside group tandas, visible only to the individual user.
+- **No Ads & 100% Free**: No subscription fees, no credit checks, no transaction fees.
+
+## Supported Languages
+- English (`https://tandapp.net/en`)
+- Spanish / Español (`https://tandapp.net/es`)
+
+## Download Links
+- **Google Play**: https://play.google.com/store/apps/details?id=com.drodriguez.tandapp
+- **Apple App Store**: https://apps.apple.com/us/app/tandapp-group-savings-tracker/id6763742265
+
+## Blog & Educational Guides
+- [What is a Tanda and How Does it Work?](https://tandapp.net/en/blog/what-is-a-tanda-how-it-works)
+- [How to Build Trust in a Tanda Group](https://tandapp.net/en/blog/how-to-build-trust-in-a-tanda)
+- [How to Start and Organize a Tanda with Tandapp](https://tandapp.net/en/blog/how-to-start-and-organize-a-tanda-group)
+- [Tanda vs Traditional Bank Savings](https://tandapp.net/en/blog/tanda-vs-traditional-savings)
+
+## Legal & Contact
+- **Developer**: Axis Labs (https://axislabs.eu)
+- **Support Email**: drodriguez.apps@gmail.com
+- **Privacy Policy**: https://axislabs.eu/tandapp/policy
+- **Terms & Conditions**: https://axislabs.eu/tandapp/terms-and-conditions

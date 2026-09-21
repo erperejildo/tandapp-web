@@ -18,6 +18,7 @@ export const messages = {
       groupSavings: 'Group Savings',
       paymentTracking: 'Payment Tracking',
       trust: 'Build Trust',
+      blog: 'Blog',
     },
     locale: {
       en: 'English',
@@ -167,6 +168,22 @@ export const messages = {
       legalHint:
         'Tandapp does not hold pooled money or process payments. It keeps private tanda coordination clear, documented, and easier to verify.',
       free: 'Tandapp is free to use.',
+      legal: 'Legal',
+      privacyPolicy: 'Privacy Policy',
+      termsConditions: 'Terms & Conditions',
+    },
+    blog: {
+      title: 'Tandapp Blog',
+      eyebrow: 'Guides & Insights',
+      lead: 'Practical guides, savings tips, and best practices to organize your tanda with complete confidence and transparency.',
+      readMore: 'Read article',
+      minRead: '{minutes} min read',
+      publishedOn: 'Published on {date}',
+      backToBlog: 'Back to Blog',
+      faqTitle: 'Frequently Asked Questions',
+      ctaTitle: 'Ready to organize your tanda?',
+      ctaLead:
+        'Free to use. Available in English and Spanish. Start your first group in under a minute.',
     },
     notFound: {
       title: 'Page not found',
@@ -188,6 +205,7 @@ export const messages = {
       groupSavings: 'Ahorro Grupal',
       paymentTracking: 'Control de Pagos',
       trust: 'Confianza',
+      blog: 'Blog',
     },
     locale: {
       en: 'English',
@@ -337,6 +355,22 @@ export const messages = {
       legalHint:
         'Tandapp no guarda ni procesa dinero. Mantiene la coordinación de tandas privadas clara, documentada y fácil de verificar.',
       free: 'Tandapp es gratis.',
+      legal: 'Legal',
+      privacyPolicy: 'Política de Privacidad',
+      termsConditions: 'Términos y Condiciones',
+    },
+    blog: {
+      title: 'Blog de Tandapp',
+      eyebrow: 'Guías y Consejos',
+      lead: 'Guías prácticas, consejos de ahorro y mejores prácticas para organizar tu tanda con total confianza y transparencia.',
+      readMore: 'Leer artículo',
+      minRead: '{minutes} min de lectura',
+      publishedOn: 'Publicado el {date}',
+      backToBlog: 'Volver al Blog',
+      faqTitle: 'Preguntas Frecuentes',
+      ctaTitle: '¿Listo para organizar tu tanda?',
+      ctaLead:
+        'Gratis. Disponible en español e inglés. Crea tu primer grupo en menos de un minuto.',
     },
     notFound: {
       title: 'Página no encontrada',

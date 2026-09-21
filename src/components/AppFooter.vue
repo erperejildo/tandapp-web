@@ -18,6 +18,7 @@ const enLinks: FooterLink[] = [
   { label: 'Group Savings', to: '/en/features/group-savings' },
   { label: 'Payment Tracking', to: '/en/features/payment-tracking' },
   { label: 'Build Trust', to: '/en/features/trust' },
+  { label: 'Blog', to: '/en/blog' },
 ]
 
 const esLinks: FooterLink[] = [
@@ -26,6 +27,7 @@ const esLinks: FooterLink[] = [
   { label: 'Ahorro Grupal', to: '/es/caracteristicas/ahorro-grupal' },
   { label: 'Control de Pagos', to: '/es/caracteristicas/control-pagos' },
   { label: 'Confianza', to: '/es/caracteristicas/confianza' },
+  { label: 'Blog', to: '/es/blog' },
 ]
 
 const footerLinks = computed(() => (currentLocale.value === 'es' ? esLinks : enLinks))
@@ -61,6 +63,21 @@ const footerLinks = computed(() => (currentLocale.value === 'es' ? esLinks : enL
           App Store
         </a>
       </div>
+
+      <div class="app-footer__column">
+        <p class="app-footer__label">{{ t('footer.legal') }}</p>
+        <a
+          class="app-footer__link"
+          :href="siteConfig.privacyPolicyUrl"
+          target="_blank"
+          rel="noopener"
+        >
+          {{ t('footer.privacyPolicy') }}
+        </a>
+        <a class="app-footer__link" :href="siteConfig.termsUrl" target="_blank" rel="noopener">
+          {{ t('footer.termsConditions') }}
+        </a>
+      </div>
     </div>
 
     <div class="container app-footer__bottom">
@@ -81,8 +98,8 @@ const footerLinks = computed(() => (currentLocale.value === 'es' ? esLinks : enL
 
 .app-footer__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.4fr) repeat(2, minmax(0, 0.8fr));
-  gap: 2rem 3rem;
+  grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 0.8fr));
+  gap: 2rem 2.5rem;
 }
 
 .app-footer__brand {
@@ -155,10 +172,16 @@ const footerLinks = computed(() => (currentLocale.value === 'es' ? esLinks : enL
   color: var(--color-footer-text-muted);
 }
 
-@media (max-width: 780px) {
+@media (max-width: 900px) {
+  .app-footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 580px) {
   .app-footer__grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
   }
 }
 </style>

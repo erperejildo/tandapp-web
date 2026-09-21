@@ -16,6 +16,7 @@ const enNav: NavItem[] = [
   { label: 'Group Savings', to: '/en/features/group-savings' },
   { label: 'Payment Tracking', to: '/en/features/payment-tracking' },
   { label: 'Build Trust', to: '/en/features/trust' },
+  { label: 'Blog', to: '/en/blog' },
 ]
 
 const esNav: NavItem[] = [
@@ -24,6 +25,7 @@ const esNav: NavItem[] = [
   { label: 'Ahorro Grupal', to: '/es/caracteristicas/ahorro-grupal' },
   { label: 'Control de Pagos', to: '/es/caracteristicas/control-pagos' },
   { label: 'Confianza', to: '/es/caracteristicas/confianza' },
+  { label: 'Blog', to: '/es/blog' },
 ]
 
 const navItems = computed(() => (currentLocale.value === 'es' ? esNav : enNav))
@@ -33,7 +35,14 @@ const navItems = computed(() => (currentLocale.value === 'es' ? esNav : enNav))
   <header class="app-header">
     <div class="container app-header__inner">
       <RouterLink :to="`/${currentLocale}`" class="app-header__brand" aria-label="Tandapp home">
-        <img src="/icon.png" alt="Tandapp" class="app-header__logo" width="36" height="36" loading="eager" />
+        <img
+          src="/icon.png"
+          alt="Tandapp"
+          class="app-header__logo"
+          width="36"
+          height="36"
+          loading="eager"
+        />
         <span class="app-header__name">Tandapp</span>
       </RouterLink>
 
