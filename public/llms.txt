@@ -33,5 +33,5 @@ Tandapp does **not** hold, collect, or process money. Members make payments dire
 ## Legal & Contact
 - **Developer**: Axis Labs (https://axislabs.eu)
 - **Support Email**: drodriguez.apps@gmail.com
-- **Privacy Policy**: https://axislabs.eu/tandapp/policy
-- **Terms & Conditions**: https://axislabs.eu/tandapp/terms-and-conditions
+- **Privacy Policy**: https://tandapp.net/en/privacy
+- **Terms & Conditions**: https://tandapp.net/en/terms

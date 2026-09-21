@@ -101,10 +101,16 @@ tandapp-web/
 | `/es/blog/como-generar-confianza-en-una-tanda`   | `BlogPostView.vue`      | `slug: como-generar-confianza-en-una-tanda, locale: es` |
 | `/es/blog/como-organizar-crear-grupo-tanda`      | `BlogPostView.vue`      | `slug: como-organizar-crear-grupo-tanda, locale: es`|
 | `/es/blog/tanda-vs-ahorro-tradicional`           | `BlogPostView.vue`      | `slug: tanda-vs-ahorro-tradicional, locale: es`     |
+| `/en/privacy`                                    | `LegalView.vue`         | `type: privacy, locale: en`                        |
+| `/en/terms`                                      | `LegalView.vue`         | `type: terms, locale: en`                          |
+| `/es/privacidad`                                 | `LegalView.vue`         | `type: privacy, locale: es`                        |
+| `/es/terminos`                                   | `LegalView.vue`         | `type: terms, locale: es`                          |
+| `/privacy`, `/terms`                             | `LegalRedirectPage.vue` | `type: privacy | terms`                            |
 | `/:pathMatch(.*)*`                               | `NotFoundPage.vue`       | —                                                   |
 
 `FeatureContentView.vue` uses `featureKey` to read sections from `messages.en.features[featureKey]` or `messages.es.features[featureKey]`. All 8 feature pages render from this single component.
 `BlogPostView.vue` uses `slug` and `locale` to read article data from `src/data/blogPosts.ts` with structured AEO/GEO definition blocks, comparison tables, and FAQ schemas.
+`LegalView.vue` uses `type` and `locale` to read legal documents from `src/data/legalContent.ts`.
 
 ---
 

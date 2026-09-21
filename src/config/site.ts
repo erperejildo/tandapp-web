@@ -6,8 +6,8 @@ export const siteConfig = {
   email: 'drodriguez.apps@gmail.com',
   googlePlayUrl: 'https://play.google.com/store/apps/details?id=com.drodriguez.tandapp',
   appStoreUrl: 'https://apps.apple.com/us/app/tandapp-group-savings-tracker/id6763742265',
-  privacyPolicyUrl: 'https://axislabs.eu/tandapp/policy',
-  termsUrl: 'https://axislabs.eu/tandapp/terms-and-conditions',
+  privacyPolicyUrl: 'https://tandapp.net/en/privacy',
+  termsUrl: 'https://tandapp.net/en/terms',
 } as const
 
 export function resolveCanonicalPath(locale: SiteLocale, path: string): string {

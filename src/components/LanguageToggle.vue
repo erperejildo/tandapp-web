@@ -17,6 +17,8 @@ const routeMap: Record<string, string> = {
   '/en/blog/how-to-build-trust-in-a-tanda': '/es/blog/como-generar-confianza-en-una-tanda',
   '/en/blog/how-to-start-and-organize-a-tanda-group': '/es/blog/como-organizar-crear-grupo-tanda',
   '/en/blog/tanda-vs-traditional-savings': '/es/blog/tanda-vs-ahorro-tradicional',
+  '/en/privacy': '/es/privacidad',
+  '/en/terms': '/es/terminos',
   '/es': '/en',
   '/es/caracteristicas/tandas-en-linea': '/en/features/online-tandas',
   '/es/caracteristicas/ahorro-grupal': '/en/features/group-savings',
@@ -27,6 +29,8 @@ const routeMap: Record<string, string> = {
   '/es/blog/como-generar-confianza-en-una-tanda': '/en/blog/how-to-build-trust-in-a-tanda',
   '/es/blog/como-organizar-crear-grupo-tanda': '/en/blog/how-to-start-and-organize-a-tanda-group',
   '/es/blog/tanda-vs-ahorro-tradicional': '/en/blog/tanda-vs-traditional-savings',
+  '/es/privacidad': '/en/privacy',
+  '/es/terminos': '/en/terms',
 }
 
 const otherPath = computed(() => {
