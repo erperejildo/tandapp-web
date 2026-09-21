@@ -1,3 +1,23 @@
 User-agent: *
 Allow: /
-Sitemap: https://tandapp.app/sitemap.xml
+
+# AI Crawlers & Search Bots
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+Sitemap: https://tandapp.net/sitemap.xml

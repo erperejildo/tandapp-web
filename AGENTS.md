@@ -4,7 +4,7 @@
 
 Static marketing site for **Tandapp**, a free group savings (tanda) coordination app. The site is bilingual (EN / ES), pre-rendered at build time, and deployed to GitHub Pages via GitHub Actions.
 
-- Domain: `https://tandapp.app`
+- Domain: `https://tandapp.net`
 - App: free, does NOT hold or process money — just coordination records
 - Store links: [Google Play](https://play.google.com/store/apps/details?id=com.drodriguez.tandapp) · [App Store](https://apps.apple.com/us/app/tandapp-group-savings-tracker/id6763742265)
 
@@ -75,24 +75,36 @@ tandapp-web/
 
 ---
 
-## Route structure (11 pages)
+## Route structure (21 pages)
 
-| Path                                      | Component               | Props                                              |
-| ----------------------------------------- | ----------------------- | --------------------------------------------------- |
-| `/`                                       | `RedirectPage.vue`      | —                                                   |
-| `/en`                                     | `en/HomePage.vue`       | —                                                   |
-| `/en/features/online-tandas`              | `FeatureContentView.vue` | `featureKey: onlineTandas, locale: en`             |
-| `/en/features/group-savings`              | `FeatureContentView.vue` | `featureKey: groupSavings, locale: en`             |
-| `/en/features/payment-tracking`           | `FeatureContentView.vue` | `featureKey: paymentTracking, locale: en`         |
-| `/en/features/trust`                      | `FeatureContentView.vue` | `featureKey: trust, locale: en`                    |
-| `/es`                                     | `es/HomePage.vue`        | —                                                   |
-| `/es/caracteristicas/tandas-en-linea`     | `FeatureContentView.vue` | `featureKey: onlineTandas, locale: es`             |
-| `/es/caracteristicas/ahorro-grupal`       | `FeatureContentView.vue` | `featureKey: groupSavings, locale: es`             |
-| `/es/caracteristicas/control-pagos`        | `FeatureContentView.vue` | `featureKey: paymentTracking, locale: es`         |
-| `/es/caracteristicas/confianza`           | `FeatureContentView.vue` | `featureKey: trust, locale: es`                    |
-| `/:pathMatch(.*)*`                        | `NotFoundPage.vue`       | —                                                   |
+| Path                                             | Component               | Props                                              |
+| ------------------------------------------------ | ----------------------- | --------------------------------------------------- |
+| `/`                                              | `RedirectPage.vue`      | —                                                   |
+| `/en`                                            | `en/HomePage.vue`       | —                                                   |
+| `/en/features/online-tandas`                     | `FeatureContentView.vue` | `featureKey: onlineTandas, locale: en`             |
+| `/en/features/group-savings`                     | `FeatureContentView.vue` | `featureKey: groupSavings, locale: en`             |
+| `/en/features/payment-tracking`                  | `FeatureContentView.vue` | `featureKey: paymentTracking, locale: en`         |
+| `/en/features/trust`                             | `FeatureContentView.vue` | `featureKey: trust, locale: en`                    |
+| `/blog`                                          | `BlogRedirectPage.vue`  | —                                                   |
+| `/en/blog`                                       | `BlogIndexView.vue`     | `locale: en`                                       |
+| `/en/blog/what-is-a-tanda-how-it-works`          | `BlogPostView.vue`      | `slug: what-is-a-tanda-how-it-works, locale: en`    |
+| `/en/blog/how-to-build-trust-in-a-tanda`         | `BlogPostView.vue`      | `slug: how-to-build-trust-in-a-tanda, locale: en`   |
+| `/en/blog/how-to-start-and-organize-a-tanda-group`| `BlogPostView.vue`      | `slug: how-to-start-and-organize-a-tanda-group, locale: en` |
+| `/en/blog/tanda-vs-traditional-savings`          | `BlogPostView.vue`      | `slug: tanda-vs-traditional-savings, locale: en`    |
+| `/es`                                            | `es/HomePage.vue`        | —                                                   |
+| `/es/caracteristicas/tandas-en-linea`            | `FeatureContentView.vue` | `featureKey: onlineTandas, locale: es`             |
+| `/es/caracteristicas/ahorro-grupal`              | `FeatureContentView.vue` | `featureKey: groupSavings, locale: es`             |
+| `/es/caracteristicas/control-pagos`               | `FeatureContentView.vue` | `featureKey: paymentTracking, locale: es`         |
+| `/es/caracteristicas/confianza`                  | `FeatureContentView.vue` | `featureKey: trust, locale: es`                    |
+| `/es/blog`                                       | `BlogIndexView.vue`     | `locale: es`                                       |
+| `/es/blog/que-es-una-tanda-como-funciona`        | `BlogPostView.vue`      | `slug: que-es-una-tanda-como-funciona, locale: es`  |
+| `/es/blog/como-generar-confianza-en-una-tanda`   | `BlogPostView.vue`      | `slug: como-generar-confianza-en-una-tanda, locale: es` |
+| `/es/blog/como-organizar-crear-grupo-tanda`      | `BlogPostView.vue`      | `slug: como-organizar-crear-grupo-tanda, locale: es`|
+| `/es/blog/tanda-vs-ahorro-tradicional`           | `BlogPostView.vue`      | `slug: tanda-vs-ahorro-tradicional, locale: es`     |
+| `/:pathMatch(.*)*`                               | `NotFoundPage.vue`       | —                                                   |
 
 `FeatureContentView.vue` uses `featureKey` to read sections from `messages.en.features[featureKey]` or `messages.es.features[featureKey]`. All 8 feature pages render from this single component.
+`BlogPostView.vue` uses `slug` and `locale` to read article data from `src/data/blogPosts.ts` with structured AEO/GEO definition blocks, comparison tables, and FAQ schemas.
 
 ---
 

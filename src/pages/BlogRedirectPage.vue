@@ -7,24 +7,23 @@ import { resolvePreferredLocale } from '@/i18n/messages'
 
 useSeo({
   locale: 'en',
-  path: '/',
+  path: '/blog',
 })
 
 const router = useRouter()
 
 let redirected = false
 
-function redirectToLocale() {
+function redirectToLocaleBlog() {
   if (redirected) return
   redirected = true
 
   const locale = resolvePreferredLocale()
-
-  router.replace(`/${locale}`)
+  router.replace(`/${locale}/blog`)
 }
 
 onMounted(() => {
-  redirectToLocale()
+  redirectToLocaleBlog()
 })
 </script>
 
@@ -47,23 +46,5 @@ onMounted(() => {
 .redirect p {
   margin: 0;
   font-size: 1rem;
-
-  &::after {
-    content: '';
-    display: inline-block;
-    animation: dots 1.5s steps(3, end) infinite;
-  }
-}
-
-@keyframes dots {
-  0% {
-    content: '.';
-  }
-  33% {
-    content: '..';
-  }
-  66% {
-    content: '...';
-  }
 }
 </style>

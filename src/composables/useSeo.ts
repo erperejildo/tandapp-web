@@ -11,6 +11,8 @@ interface PageSeoInput {
   locale?: SiteLocale
   path?: string
   image?: string
+  type?: 'website' | 'article'
+  jsonLd?: Record<string, unknown>[]
   noIndex?: boolean
 }
 
@@ -25,9 +27,43 @@ export function useSeo(input: PageSeoInput = {}) {
 
   const pageTitle = computed(() => input.title ?? t('site.tagline'))
   const pageDescription = computed(() => input.description ?? t('site.description'))
-  const fullTitle = computed(
-    () => `${pageTitle.value} | ${siteConfig.brandName}`,
-  )
+  const fullTitle = computed(() => `${pageTitle.value} | ${siteConfig.brandName}`)
+
+  const defaultSchemas: Record<string, unknown>[] = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: siteConfig.brandName,
+      url: siteConfig.domain,
+      logo: `${siteConfig.domain}/icon.png`,
+      sameAs: [siteConfig.googlePlayUrl, siteConfig.appStoreUrl],
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: siteConfig.brandName,
+      url: siteConfig.domain,
+      inLanguage: ['en', 'es'],
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'SoftwareApplication',
+      name: siteConfig.brandName,
+      applicationCategory: 'FinanceApplication',
+      operatingSystem: 'Android, iOS',
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+      },
+      description: pageDescription.value,
+      url: siteConfig.domain,
+    },
+  ]
+
+  const scripts = (input.jsonLd ?? defaultSchemas).map((schema) => ({
+    type: 'application/ld+json',
+    innerHTML: JSON.stringify(schema),
+  }))
 
   useHead({
     title: fullTitle.value,
@@ -70,7 +106,7 @@ export function useSeo(input: PageSeoInput = {}) {
       },
       {
         property: 'og:type',
-        content: 'website',
+        content: input.type ?? 'website',
       },
       {
         property: 'og:url',
@@ -117,24 +153,7 @@ export function useSeo(input: PageSeoInput = {}) {
         content: input.image ?? `${siteConfig.domain}/og-image.png`,
       },
     ],
-    script: [
-      {
-        type: 'application/ld+json',
-        innerHTML: JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'SoftwareApplication',
-          name: siteConfig.brandName,
-          applicationCategory: 'FinanceApplication',
-          operatingSystem: 'Android, iOS',
-          offers: {
-            '@type': 'Offer',
-            price: '0',
-          },
-          description: pageDescription.value,
-          url: siteConfig.domain,
-        }),
-      },
-    ],
+    script: scripts,
     ...(input.noIndex
       ? {
           meta: [

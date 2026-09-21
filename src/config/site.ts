@@ -2,13 +2,19 @@ import type { SiteLocale } from '@/types'
 
 export const siteConfig = {
   brandName: 'Tandapp',
-  domain: 'https://tandapp.app',
+  domain: 'https://tandapp.net',
   email: 'drodriguez.apps@gmail.com',
   googlePlayUrl: 'https://play.google.com/store/apps/details?id=com.drodriguez.tandapp',
   appStoreUrl: 'https://apps.apple.com/us/app/tandapp-group-savings-tracker/id6763742265',
+  privacyPolicyUrl: 'https://axislabs.eu/tandapp/policy',
+  termsUrl: 'https://axislabs.eu/tandapp/terms-and-conditions',
 } as const
 
 export function resolveCanonicalPath(locale: SiteLocale, path: string): string {
+  if (path === '/') {
+    return '/'
+  }
+
   const trimmed = path.replace(/\/$/, '') || ''
 
   if (locale === 'en') {

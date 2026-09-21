@@ -5,11 +5,10 @@ import { watch } from 'vue'
 
 import AppFooter from '@/components/AppFooter.vue'
 import AppHeader from '@/components/AppHeader.vue'
-import LanguageToggle from '@/components/LanguageToggle.vue'
 import { siteConfig } from '@/config/site'
 import { persistLocale } from '@/i18n/messages'
 
-const { t, locale } = useI18n()
+const { locale } = useI18n()
 
 useHead({
   title: siteConfig.brandName,
