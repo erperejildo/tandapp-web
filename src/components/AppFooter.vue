@@ -66,17 +66,18 @@ const footerLinks = computed(() => (currentLocale.value === 'es' ? esLinks : enL
 
       <div class="app-footer__column">
         <p class="app-footer__label">{{ t('footer.legal') }}</p>
-        <a
+        <RouterLink
           class="app-footer__link"
-          :href="siteConfig.privacyPolicyUrl"
-          target="_blank"
-          rel="noopener"
+          :to="currentLocale === 'es' ? '/es/privacidad' : '/en/privacy'"
         >
           {{ t('footer.privacyPolicy') }}
-        </a>
-        <a class="app-footer__link" :href="siteConfig.termsUrl" target="_blank" rel="noopener">
+        </RouterLink>
+        <RouterLink
+          class="app-footer__link"
+          :to="currentLocale === 'es' ? '/es/terminos' : '/en/terms'"
+        >
           {{ t('footer.termsConditions') }}
-        </a>
+        </RouterLink>
       </div>
     </div>
 

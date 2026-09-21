@@ -28,6 +28,8 @@ export default defineConfig({
         { url: '/en/blog/how-to-build-trust-in-a-tanda', changefreq: 'monthly', priority: '0.8' },
         { url: '/en/blog/how-to-start-and-organize-a-tanda-group', changefreq: 'monthly', priority: '0.8' },
         { url: '/en/blog/tanda-vs-traditional-savings', changefreq: 'monthly', priority: '0.8' },
+        { url: '/en/privacy', changefreq: 'monthly', priority: '0.5' },
+        { url: '/en/terms', changefreq: 'monthly', priority: '0.5' },
         { url: '/es', changefreq: 'weekly', priority: '1.0' },
         { url: '/es/caracteristicas/tandas-en-linea', changefreq: 'monthly', priority: '0.8' },
         { url: '/es/caracteristicas/ahorro-grupal', changefreq: 'monthly', priority: '0.8' },
@@ -38,6 +40,8 @@ export default defineConfig({
         { url: '/es/blog/como-generar-confianza-en-una-tanda', changefreq: 'monthly', priority: '0.8' },
         { url: '/es/blog/como-organizar-crear-grupo-tanda', changefreq: 'monthly', priority: '0.8' },
         { url: '/es/blog/tanda-vs-ahorro-tradicional', changefreq: 'monthly', priority: '0.8' },
+        { url: '/es/privacidad', changefreq: 'monthly', priority: '0.5' },
+        { url: '/es/terminos', changefreq: 'monthly', priority: '0.5' },
       ]
 
       const domain = 'https://tandapp.net'

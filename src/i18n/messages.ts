@@ -170,7 +170,7 @@ export const messages = {
       free: 'Tandapp is free to use.',
       legal: 'Legal',
       privacyPolicy: 'Privacy Policy',
-      termsConditions: 'Terms & Conditions',
+      termsConditions: 'Terms of Service',
     },
     blog: {
       title: 'Tandapp Blog',
